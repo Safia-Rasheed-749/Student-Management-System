@@ -29,7 +29,7 @@ Other: Django Forms, Django Messages Framework
 graphql
 Copy
 Edit
-student_management/
+student_mgmt/
 ├── students/              # Django app with models, views, forms, templates
 ├── templates/students/    # All HTML templates (add, update, delete, list)
 ├── static/                # Tailwind CSS and assets
@@ -37,16 +37,29 @@ student_management/
 ├── manage.py              # Django CLI
 └── requirements.txt       # Python dependencies
 🚀 Setup Instructions
-bash
-Copy
-Edit
+Clone the repo
 git clone https://github.com/your-username/student-management-system.git
+
+Navigate to the project folder
 cd student-management-system
-python -m venv venv
-source venv/bin/activate   # On Windows: venv\Scripts\activate
+
+Create virtual environment
+
+Windows: python -m venv venv && venv\Scripts\activate
+
+Mac/Linux: python3 -m venv venv && source venv/bin/activate
+
+Install dependencies
 pip install -r requirements.txt
+
+Apply migrations
 python manage.py migrate
+
+Run server
 python manage.py runserver
+
+Open in browser
+Visit http://127.0.0.1:8000/
 📌 Use Cases
 College or university admin panel
 
