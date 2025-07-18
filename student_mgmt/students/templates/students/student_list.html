@@ -1,0 +1,62 @@
+{% extends 'students/base.html' %}
+{% block content %}
+
+<a href="{% url 'add_student' %}" 
+   class="inline-block underline-animate text-black font-semibold py-2 px-4 rounded border border-[#286e6f] bg-[#a9dff] hover:bg-[#1f5a5b] hover:shadow-md transition duration-300 mb-6">
+   ➕ Add Student
+</a>
+
+
+
+
+<div class="overflow-x-auto rounded-lg shadow-lg">
+    <table class="min-w-full border-collapse border border-gray-400 bg-white text-sm text-gray-800">
+        <thead class="bg-indigo-600 text-white text-left">
+            <tr>
+                <th class="px-6 py-3 border border-gray-400">👤 Name</th>
+                <th class="px-6 py-3 border border-gray-400">📧 Email</th>
+                <th class="px-6 py-3 border border-gray-400">📱 Phone</th>
+                <th class="px-6 py-3 border border-gray-400">🎓 Course</th>
+                <th class="px-6 py-3 border border-gray-400">🏠 Address</th>
+                <th class="px-6 py-3 border border-gray-400">🖼️ Profile Picture</th>
+                <th class="px-6 py-3 border border-gray-400">⚙️ Actions</th>
+            </tr>
+        </thead>
+       <tbody>
+    {% for student in students %}
+    <tr class="{% cycle 'bg-gray-50' 'bg-white' %} hover:bg-blue-50 transition duration-150">
+        <td class="px-6 py-3 border border-gray-400 font-medium text-gray-900">{{ student.name }}</td>
+        <td class="px-6 py-3 border border-gray-400">{{ student.email }}</td>
+        <td class="px-6 py-3 border border-gray-400">{{ student.phone }}</td>
+        <td class="px-6 py-3 border border-gray-400">{{ student.course }}</td>
+        <td class="px-6 py-3 border border-gray-400">{{ student.address }}</td>
+        <td class="px-6 py-3 border border-gray-400">
+            {% if student.profile_picture %}
+                <img src="{{ student.profile_picture.url }}" alt="Profile" class="profile-pic">
+            {% else %}
+                <span class="text-gray-400 italic">No picture</span>
+            {% endif %}
+        </td>
+        <td class="px-6 py-3 border border-gray-400">
+            <a href="{% url 'update_student' student.pk %}" class="action-link">
+                ✏️ Edit
+            </a>
+            <br>
+            <a href="{% url 'delete_student' student.pk %}" class="action-link">
+                🗑️ Delete
+            </a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="7" class="text-center text-gray-500 py-6 border border-gray-400">
+            No students found.
+        </td>
+    </tr>
+    {% endfor %}
+</tbody>
+
+    </table>
+</div>
+
+{% endblock %}

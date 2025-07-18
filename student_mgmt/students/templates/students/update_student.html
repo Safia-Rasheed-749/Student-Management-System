@@ -1,0 +1,37 @@
+{% extends 'students/base.html' %}
+{% block content %}
+
+<div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-md border border-gray-200">
+    <h2 class="text-2xl font-bold mb-6 text-black text-center">
+        ✏️ Update {{ student.name }}
+    </h2>
+
+    <form method="post" enctype="multipart/form-data" class="space-y-5">
+        {% csrf_token %}
+
+        {% for field in form %}
+            <div class="flex flex-col">
+                <label for="{{ field.id_for_label }}" class="mb-1 text-[#286e6f] font-semibold">
+                    {{ field.label }}
+                </label>
+                {{ field }}
+                {% if field.errors %}
+                    <p class="text-red-500 text-sm mt-1">{{ field.errors|striptags }}</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        <div class="flex justify-end space-x-4 pt-4">
+            <a href="{% url 'student_list' %}"
+               class="px-4 py-2 rounded border border-gray-300 text-gray-700 hover:bg-gray-100 transition duration-200">
+                Cancel
+            </a>
+            <button type="submit"
+        class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition duration-300 shadow-sm">
+    Save
+</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

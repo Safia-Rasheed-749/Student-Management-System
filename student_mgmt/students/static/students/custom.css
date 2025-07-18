@@ -1,0 +1,87 @@
+/* custom.css */
+
+/* Delete Confirmation Card */
+.delete-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 4rem auto;
+    text-align: center;
+}
+
+/* Title */
+.delete-title {
+    color: #dc2626; /* red-600 */
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* Message Text */
+.delete-message {
+    color: #374151; /* gray-700 */
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+/* Buttons Row */
+.delete-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Delete Button */
+.btn-delete {
+    background-color: #dc2626; /* red-600 */
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border: none;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-delete:hover {
+    background-color: #b91c1c; /* red-700 */
+}
+
+/* Cancel Button */
+.btn-cancel {
+    background-color: #e5e7eb; /* gray-200 */
+    color: #1f2937; /* gray-800 */
+    padding: 0.6rem 1.5rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.2s ease;
+}
+
+.btn-cancel:hover {
+    background-color: #d1d5db; /* gray-300 */
+}
+.underline-animate {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.underline-animate::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #a9fdff; /* white underline */
+    transition: width 0.3s ease-in-out;
+}
+
+.underline-animate:hover::after {
+    width: 100%;
+}

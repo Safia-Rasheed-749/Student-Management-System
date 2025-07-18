@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Student Management</title>
+    <link href="{% static 'students/main.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'students/custom.css' %}" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+
+    <style>
+      /* Fade-in animation */
+      .fade-in {
+        animation: fadeIn 1s ease-in-out;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="fade-in">
+    <!-- Wrapper holds everything except footer -->
+    <div class="wrapper">
+      <!-- Header -->
+      
+      <header class="w-full bg-white shadow p-4 mb-6" style="background-color: rgb(40, 110, 111);">
+        <h1 class="text-3xl font-bold text-gray-900 text-center block w-full">
+          🎓 Student Management System
+        </h1>
+      </header>
+
+      <!-- Main content -->
+      <main class="main-content p-6">
+        {% if messages %}
+        <div class="mb-4">
+          {% for message in messages %}
+          <div class="p-3 rounded text-white bg-green-500 mb-2 shadow">
+            {{ message }}
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %} {% block content %}{% endblock %}
+      </main>
+    </div>
+
+    <!-- Footer (always at bottom of screen or below content) -->
+    <footer class="site-footer">
+      &copy; 2025 - Student Management System. All rights reserved.
+    </footer>
+  </body>
+</html>
